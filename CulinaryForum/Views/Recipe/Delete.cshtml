@@ -1,0 +1,27 @@
+﻿@model RecipeEntity
+
+<form asp-action="Delete" asp-controller="Recipe" method="post" class="maxWidth form-container">
+
+    <div class="p-1 form">
+        <div class="form-heading">
+            <h1>Удалить Рецепт</h1>
+        </div>
+
+        <hr />
+
+        <div class="form-main maxWidth p-1">
+            <h3>Ты действительно хочешь удалить эту запись?</h3>
+        </div>
+
+        <div class="form-main maxWidth p-1">
+            <h4>@Model.Title</h4>
+            <p>@Model.Content</p>
+        </div>
+
+        <button type="submit" class="maxWidth">Удалить</button>
+        <a asp-action="Index">Отменить</a>
+
+        <input type="hidden" asp-for="Id" />
+    </div>
+
+</form>

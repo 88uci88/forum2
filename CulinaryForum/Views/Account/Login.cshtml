@@ -1,0 +1,32 @@
+﻿@model LoginViewModel
+
+<form asp-action="Login" method="post" class="maxWidth form-container">
+
+    <div class="p-1 form">
+        <div class="form-heading">
+            <h1>Войти</h1>
+        </div>
+
+        <hr />
+
+        <div class="form-main maxWidth p-1">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-main maxWidth p-1">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-main maxWidth p-1">
+            <input asp-for="RememberMe" class="form-check-input" />
+            <label asp-for="RememberMe" class="form-check-label"></label>
+        </div>
+
+        <button type="submit" class="maxWidth">Войти</button>
+    </div>
+
+</form>

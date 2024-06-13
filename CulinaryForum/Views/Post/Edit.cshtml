@@ -1,0 +1,30 @@
+﻿@model PostEntity 
+
+<form asp-action="Edit" asp-controller="Post" method="post" class="maxWidth form-container">
+
+    <div class="p-1 form">
+        <div class="form-heading">
+            <h1>Изменить Пост</h1>
+        </div>
+
+        <hr />
+
+        <div class="form-main maxWidth p-1">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="form-main maxWidth p-1">
+            <label asp-for="Content"></label>
+            <input asp-for="Content" class="form-control" />
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="maxWidth">Сохранить</button>
+        <a asp-action="Index">Назад</a>
+         
+        <input type="hidden" asp-for="Id" />
+    </div>
+
+</form>

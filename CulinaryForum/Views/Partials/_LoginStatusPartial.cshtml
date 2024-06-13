@@ -1,0 +1,42 @@
+﻿@using System.Security.Claims;
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="header-navbar header-navbar-right">
+
+        @*   <div class="header-navbar-item">
+    <a href="@Url.Action("Profile", "User")">@User.Identity.Name</a>
+    </div> *@
+
+        <div class="header-navbar-item">
+            <button>@User.Identity.Name</button>
+        </div>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="header-navbar-item">
+                <a href="@Url.Action("Create", "Recipe")">Рецепт</a>
+            </div>
+            <div class="header-navbar-item">
+                <a href="@Url.Action("Create", "Post")">Пост</a>
+            </div>
+        }
+
+        <form method="post" asp-controller="Account" asp-action="Logout" class="header-navbar-item">
+            <button type="submit">Выйти</button>
+        </form>
+
+    </div>
+}
+else
+{
+    <div class="header-navbar header-navbar-right">
+        <div class="header-navbar-item">
+            <a href="@Url.Action("Login", "Account")">Войти</a>
+        </div>
+
+        <div class="header-navbar-item">
+            <a href="@Url.Action("Register", "Account")">Регистрация</a>
+        </div>
+    </div>
+}

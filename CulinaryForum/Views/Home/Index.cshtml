@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="maxWidth form-container">
+
+        <div class="p-1 form">
+            <div class="form-heading">
+                <h1>Категории</h1>
+            </div>
+
+            <hr />
+
+            <div class="form-main maxWidth p-1">
+                <a href="@Url.Action("Index", "Post")">Посты</a>
+            </div>
+
+            <div class="form-main maxWidth p-1">
+                <a href="@Url.Action("Index", "Post")">Рецепты</a>
+            </div>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="maxWidth form-container">
+
+        <div class="p-1 form">
+            <div class="form-heading">
+                <h1>Детали</h1>
+            </div>
+
+            <hr />
+
+            <div class="form-main maxWidth p-1">
+                <a asp-controller="Account" asp-action="Login">Войти</a>
+            </div>
+        </div>
+
+    </div>
+}

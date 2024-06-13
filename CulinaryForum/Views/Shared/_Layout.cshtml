@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"]</title>
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @*
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/TransportLogistics.styles.css" asp-append-version="true" />
+    *@
+
+</head>
+<body>
+
+    <header class="p-1 header-wrapper">
+        <div class="maxWidth p-1 header-container">
+
+            <a href="@Url.Action("Index", "Home")" class="header-logo">
+                <img src="~/images/logo.png" alt="logo" />
+                <div class="header-logo-context">
+                    <p>Кулинарные</p>
+                    <label>рецепты</label>
+                </div>
+            </a>
+
+            <div class="header-navbar header-navbar-visible header-navbar-left">
+                <div class="header-navbar-item">
+                    <a href="@Url.Action("Index", "Home")">Главная</a>
+                </div>
+            </div>
+
+            <partial name="../Partials/_LoginStatusPartial" />
+
+        </div>
+    </header>
+
+    <main class="main-wrapper p-1">
+        @RenderBody()
+    </main>
+
+    <footer class="footer-wrapper p-1">
+        <div class="footer-container maxWidth p-1">
+            <div class="footer-heading">
+                &copy; 2024 - @ViewData["Title"]
+            </div>
+
+            <div class="footer-links maxWidth">
+                <div class="footer-link">
+                    <a href="@Url.Action("Index", "Post")">Посты</a>
+                </div> 
+                <div class="footer-link">
+                    <a href="@Url.Action("Index", "Recipe")">Рецепты</a>
+                </div>
+                <div class="footer-link">
+                    <a href="@Url.Action("Privacy", "Home")">Конфиденциальность</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @*
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    *@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

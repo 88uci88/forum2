@@ -1,0 +1,26 @@
+﻿@model IEnumerable<RecipeEntity>
+
+<div class="maxWidth p-1">
+    <p>
+        <a asp-action="Create">Создать</a>
+    </p>
+</div>
+
+<div class="card-container p-1 maxWidth">
+    @foreach (var item in Model)
+    {
+        <div class="card p-1">
+            <h1>@item.Title</h1>
+            <p>@item.Content</p>
+            <label>@item.PostedDate</label>
+
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="card-btn">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </div>
+            }
+        </div>
+    }
+</div> 
